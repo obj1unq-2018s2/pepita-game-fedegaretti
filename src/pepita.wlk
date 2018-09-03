@@ -8,14 +8,18 @@ object pepita {
 
 	method come(comida) {
 		energia = energia + comida.energia()
+		self.estadoFisico()
 	}
 	
 	method estadoFisico(){
-		if(energia<10){
-			imagen= "pepita.png"
+		if(energia<20){
+			imagen = "pepita.png"
 		}
 		else if(energia>100){
-			imagen= "pepita2.png"
+			imagen = "pepita2.png"
+		}
+		else{
+			imagen = "pepita1.png"
 		}
 	}
 	
@@ -35,10 +39,14 @@ object pepita {
 		if(energia>=self.energiaParaVolar(posicion.distance(nuevaPosicion))){
 			energia -= self.energiaParaVolar(posicion.distance(nuevaPosicion))
 			self.posicion(nuevaPosicion)
+			self.estadoFisico()
 		}
 		else {
 			game.say(self,"Dame de comer primero!")
 		}
+	}
+	method teEncontro(alguien){
+		alguien.alimentar(self)		
 	}
 }	
 

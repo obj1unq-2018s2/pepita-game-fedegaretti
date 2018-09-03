@@ -6,15 +6,21 @@ object roque {
 	method imagen() = "roque.png"
 	method levantarComida(comida){
 		if(comidaGuardada != null){
-			game.removeVisual(comidaGuardada )
+			game.addVisualIn(comidaGuardada,posicion.clone().up(1))
+			comidaGuardada = comida
+			game.removeVisual(comida) 
 		}
-		comidaGuardada= comida
+		else{
+			comidaGuardada = comida
+		}
 	}
+
 	method alimentar(alguien){
 		if(comidaGuardada != null){
 			alguien.come(comidaGuardada)
+			coordAleatoria=game.at(1.randomUpTo(10),1.randomUpTo(10))
 			game.addVisualIn(comidaGuardada,coordAleatoria)
 			comidaGuardada = null
-			}
+		}
 		}
 	}

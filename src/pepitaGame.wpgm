@@ -24,9 +24,10 @@ program PepitaGame {
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
 	
 //  COLISIONES	
-	game.whenCollideDo(alpiste,{alguien=>alguien.levantarComida(alpiste)})
-	game.whenCollideDo(manzana,{alguien=>alguien.levantarComida(manzana)})
-	game.whenCollideDo(pepita,{alguien=>alguien.alimentar(pepita)})
+	//game.whenCollideDo(alpiste,{alguien=>alguien.levantarComida(alpiste)})
+	//game.whenCollideDo(manzana,{alguien=>alguien.levantarComida(manzana)})
+	//game.whenCollideDo(pepita,{alguien=>alguien.alimentar(pepita)})
+	game.whenCollideDo(roque,{alguien=>alguien.teEncontro(roque)})
 //	START
 	game.start()
 }
