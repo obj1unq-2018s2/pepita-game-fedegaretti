@@ -12,6 +12,7 @@ object pepita {
 	}
 	
 	method estadoFisico(){
+		// TODO Este precálculo de la imagen es una estrategia propensa a errores, evitalo
 		if(energia<20){
 			imagen = "pepita.png"
 		}
@@ -26,6 +27,8 @@ object pepita {
 	method volaHacia(unaCiudad) {
 		if (ciudad != unaCiudad) {
 			self.move(unaCiudad.posicion())
+			
+			// TODO Estás cambiando la ciudad siempre y no sabés si se movió o no.
 			ciudad = unaCiudad
 		}
 		else{
@@ -36,6 +39,7 @@ object pepita {
 	method energiaParaVolar(distancia) = 15 + 5 * distancia
 
 	method move(nuevaPosicion) {
+		// TODO Esta repetición se puede evitar
 		if(energia>=self.energiaParaVolar(posicion.distance(nuevaPosicion))){
 			energia -= self.energiaParaVolar(posicion.distance(nuevaPosicion))
 			self.posicion(nuevaPosicion)
